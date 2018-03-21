@@ -31,3 +31,11 @@ test('Testing first item in result is a string', (t) => {
     t.equal(actual, expected, `Expected aardvark instead got ${actual}`);
     t.end();
 });
+
+
+test('Testing result start with corrent input letter', (t) => {
+    actual = logic.searchSuggestions('b')[0];
+    expected = 'baboon';
+    t.equal(actual, expected, `Expected baboon instead got ${actual}`);
+    t.end();
+});
