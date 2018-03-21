@@ -1,7 +1,7 @@
 (function () {
 	document.querySelector('.form__input').focus(); // gives immediate focus to the form
 	var domList = document.querySelector('#js-result');
-
+	// var input = document.querySelector('#js-input');
 	var url = '/search/?q='; // function scoped variable for the search string
 
 	// ADD LISTENER TO COMBINE IT ALL TOGETHER
@@ -23,6 +23,9 @@
 
 	// FUNCTION FOR DOM MANIPULATION ONCE RECEIVED REQUEST
 	function displaySuggestions(response) {
+		while (domList.firstChild) {
+			domList.removeChild(domList.firstChild); // refreshes tracklist for repeadted searches
+		  }
 		response.forEach(function (item) {
 			var domItem = document.createElement("li");
 			domItem.classList.add("result__item");
