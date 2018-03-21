@@ -5,7 +5,7 @@ const path = require('path');
 const data = require('./animals.json');
 const logic = require('./logic');
 
-const staticHandler = (res, filepath) => {
+const staticHandler = (response, filepath) => {
     const extension = filepath.split('.')[1];
     const extensionType = {
         html: 'text/html',
@@ -14,26 +14,29 @@ const staticHandler = (res, filepath) => {
         ico: 'image/x-icon',
     };
 
-    fs.readFile(path.join(__dirname, '..', filepath), 'utf8', (err, file) => {
+    fs.readFile(path.join(__dirname, '..', filepath), 'utf8', (error, file) => {
         /* istanbul ignore if */
-        if (err) {
-            res.writeHead(500, {'content-type': 'text/plain'});
-            res.end('server error');
+        if (error) {
+            response.writeHead(500, {'content-type': 'text/plain'});
+            response.end('server error');
         } else {
-            res.writeHead(200, {'content-type': extensionType[extension]});
-            res.end(file);
+            response.writeHead(200, {'content-type': extensionType[extension]});
+            response.end(file);
         }
     });
 }
 
-const searchHandler = (res, url) => {
+const searchHandler = (response, url) => {
+    console.log("handler reached")
     // endpoint for /search/ + input string -- so need to get input string from URL
     // SO IN HERE:
     // takes in pure functions from logic and linking it with input string
     // something like logic.process(input);
     // put the response into result
-    res.writeHead(200, {'content-type': 'application/json'});
-    res.end(JSON.stringify(result));
+    response.writeHead(200, {'content-type': 'application/json'});
+    response.end();
+    // response.end(JSON.stringify(result));
+    
 }
 
 module.exports = {

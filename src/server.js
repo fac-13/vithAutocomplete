@@ -10,5 +10,3 @@ const server = http.createServer(router);
 server.listen(port, function(){
     console.log('server running on: http://' + host + ':' + port);
 });
-
-module.exports = server;
