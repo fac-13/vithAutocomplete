@@ -16,12 +16,11 @@
 			url = url.substring(0, url.length - 1);
 			console.log(url);
 		}
-
 		request.fetch(url, displaySuggestions);
 	});
 
 	// FUNCTION FOR DOM MANIPULATION ONCE RECEIVED REQUEST
-	function displaySuggestions() {}
+	function displaySuggestions() { }
 
 	document.querySelector('.form').reset(); // resets search form input field
 })();
