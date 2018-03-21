@@ -7,6 +7,7 @@
 		event.preventDefault();
 		console.log(event);
 
+		//STETCH: if statement to handle highlight deletion
 		// Creates our Search String
 		var input = event.key;
     if (event.keyCode >= 48 && event.keyCode <= 90) { // Do we care about punctuation and add more key codes ie space bar? (stretch!!!)
