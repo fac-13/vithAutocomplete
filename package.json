@@ -4,7 +4,7 @@
   "description": "Animal search!",
   "main": "DOM.js",
   "scripts": {
-    "test": "nyc tape logic.test.js | tap-spec",
+    "test": "nyc tape src/test.js | tap-spec",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
