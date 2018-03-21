@@ -13,13 +13,12 @@ var request = {
     xhr.addEventListener("load", function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
         console.log("fetch is working", url)
-       // var response = JSON.parse(xhr.responseText);
-       // callback(response);
+       var response = JSON.parse(xhr.responseText);
+       callback(response);
       } else {
         console.log("XHR error", xhr.readyState);
       }
     });
-    console.log(url);
     xhr.open("GET", url, true);
     xhr.send();
   },

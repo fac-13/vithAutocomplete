@@ -32,11 +32,9 @@ const searchHandler = (response, url) => {
     // SO IN HERE:
     // takes in pure functions from logic and linking it with input string
     // something like logic.process(input);
-    // put the response into result
+    var result = ['cat','dog','horsse','eel']; // put the response into result
     response.writeHead(200, {'content-type': 'application/json'});
-    response.end();
-    // response.end(JSON.stringify(result));
-    
+    response.end(JSON.stringify(result));
 }
 
 module.exports = {
