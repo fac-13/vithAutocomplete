@@ -28,14 +28,22 @@ test('Testing after processing returns has max of 5 items', (t) => {
 test('Testing first item in result is a string', (t) => {
     actual = logic.searchSuggestions('a')[0];
     expected = 'aardvark';
-    t.equal(actual, expected, `Expected aardvark instead got ${actual}`);
+    t.equal(actual, expected, `Expected aardvark. Got ${actual}`);
     t.end();
 });
 
 
-test('Testing result start with corrent input letter', (t) => {
+test('Testing results start with correct input letter', (t) => {
+    actual = logic.searchSuggestions('c')[0];
+    expected = 'camel';
+    t.equal(actual, expected, `Expected camel. Got ${actual}`);
+    t.end();
+});
+
+//failing test
+test('Testing results start with or contains word that starts with correct input letter', (t) => {
     actual = logic.searchSuggestions('b')[0];
     expected = 'baboon';
-    t.equal(actual, expected, `Expected baboon instead got ${actual}`);
+    t.equal(actual, expected, `Expected baboon. Got ${actual}`);
     t.end();
 });
