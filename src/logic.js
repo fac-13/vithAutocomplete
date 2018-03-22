@@ -3,7 +3,7 @@ const animals = require('./animals.json');
 // PURE LOGICS FOR PROCESSING
 
 const logic = {
-	sugesstions: input => {
+	suggestions: input => {
         let regex = new RegExp(`\\b${input}`, 'g');
 		let result = animals
 			.map(element => element['CommonName'])
