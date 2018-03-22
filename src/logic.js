@@ -1,4 +1,5 @@
 const dummy = require('./animalsDummy.json');
+const animals = require('./animals.json');
 
 // PURE LOGICS FOR PROCESSING
 
@@ -6,8 +7,8 @@ const logic = {
 	suggestions: input => {
         let regex = new RegExp(`\\b${input}`, 'g');
         console.log(regex);
-		let result = dummy
-			.map(element => element['common name'])
+		let result = animals
+			.map(element => element['CommonName'])
             .filter(name => regex.test(name))
             .slice(0, 5)
             .sort((a, b) => a > b); /// this isn't working needs to be sorted.  Last test is failing
