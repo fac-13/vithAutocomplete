@@ -27,12 +27,8 @@ const staticHandler = (response, filepath) => {
 }
 
 const searchHandler = (response, url) => {
-    console.log("handler reached")
-    // endpoint for /search/ + input string -- so need to get input string from URL
-    // SO IN HERE:
-    // takes in pure functions from logic and linking it with input string
-    // something like logic.process(input);
-    var result = ['cat','dog','horsse','eel']; // put the response into result
+    let inputText = url.replace('/search/?q=', '');
+    let result = logic.searchSuggestions(inputText);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));
 }
