@@ -24,16 +24,19 @@
 			// on backspace
 			request.fetch(startURL + inputString, displaySuggestions);
 		}
-		console.log('domInputvalie', domInput.value);
-		console.log('inputString', inputString);
 	});
 
+	// add listener to the form
+	domList.addEventListener('click', replaceInput);
+
+	// DOM MANIPULATION FUNCTIONS
+	// Remove list
 	function removeChildren() {
 		while (domList.firstChild) {
 			domList.removeChild(domList.firstChild); // refreshes tracklist for repeadted searches
 		}
 	}
-	// FUNCTION FOR DOM MANIPULATION ONCE RECEIVED REQUEST
+	// Function once receiveed response
 	function displaySuggestions(response) {
 		removeChildren();
 		response.forEach(function (item) {
@@ -49,7 +52,11 @@
 		});
 	};
 
-
+	// once click on the list, will update input
+	function replaceInput(event) {
+		domInput.value = event.target.firstChild.textContent;
+		removeChildren();
+	}
 
 	document.querySelector('.form').reset(); // resets search form input field
 })();
