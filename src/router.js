@@ -9,7 +9,7 @@ const router = (request, response) => {
         handlers.staticHandler(response, 'public/index.html');
 
     } else if (url.indexOf('suggest') !== -1) {
-        console.log("suggest router reached")
+        console.log("suggest router reached");
         handlers.suggestHandler(response, url);
 
     } else if (url.indexOf('search') !== -1) {

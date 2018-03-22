@@ -26,16 +26,22 @@
 			// on backspace
 			request.fetch(autocompleteURL + inputString, displaySuggestions);
 		} else if (event.keyCode === 13) { //"ENTER"
+			inputString = domInput.value;
 			request.fetch(searchQueryURL + inputString, displayResults);	
 		}
 	});
 
 	// add listener to the form for dropdown content menu
 	domList.addEventListener('click', function(event) {
-		// second your URL
-		request.fetch(searchQueryURL + inputString, displayResults);
+		request.fetch(searchQueryURL + event.target.firstChild.textContent, displayResults);
 		replaceInput(event);
 	}) 
+
+	request.addListener('#js-submit', 'keydown', function (event) {
+		if (event.keyCode === 13) { //"ENTER"
+			event.preventDefault();
+		}
+	})
 
 
 	// DOM MANIPULATION FUNCTIONS
