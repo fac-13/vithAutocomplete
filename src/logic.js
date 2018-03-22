@@ -3,9 +3,8 @@ const animals = require('./animals.json');
 // PURE LOGICS FOR PROCESSING
 
 const logic = {
-	searchSuggestions: input => {
+	suggestions: input => {
         let regex = new RegExp(`\\b${input}`, 'g');
-        console.log(regex);
 		let result = animals
 			.map(element => element['CommonName'])
             .filter(name => regex.test(name))
@@ -16,8 +15,11 @@ const logic = {
 		// and return an array of 5 strings
 	},
 
-	searchResult: query => {
-		// take in a query (string) and return one matching result (object)
+	search: query => {
+		let result = animals
+			.filter(element => (element['CommonName'] && element['CommonName'].includes(query)) ? element : false)
+		return result;
+		// take in a query (string) and return matching result (object)
 	}
 };
 
