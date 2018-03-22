@@ -37,6 +37,7 @@ const suggestHandler = (response, url) => {
 const searchHandler = (response, url) => {
     console.log("search handler reached")
     let inputText = url.replace('/search/?q=', '');
+    let result = logic.searchQuery(inputText);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));
 }

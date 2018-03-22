@@ -95,73 +95,6 @@ body {
   outline: none;
 }
 
-
-/* Mixtape */
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.mixtape__header {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-.mixtape__title {
-  text-transform: uppercase;
-  letter-spacing: .2rem;
-  font-size: 2rem;
-  position: relative;
-}
-
-.mixtape__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.mixtape__img {
-  height: 40vh;
-  width: 40vh;
-  object-fit: cover;
-  border: 1rem solid hsl(200, 80%, 90%);
-}
-
-.mixtape__track {
-  padding-bottom: .5rem;
-  text-indent: -1.2em;
-  padding-left: 2rem;
-}
-
-.mixtape__trackTitle {
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: .05rem;
-}
-
-.mixtape__trackArtist {
-  font-style: italic;
-  font-size: .9rem;
-  padding-left: 1rem;
-}
-
-
-@media only screen and (min-width: 900px) {
-    
-  .mixtape__container {
-    flex-direction: row;
-  }
-  
-  .mixtape__listContainer {
-    max-width: 50%;
-  }
-}
-
 /* NEW ANIMAL STUFF */
 .result {
   list-style: none;
@@ -190,4 +123,24 @@ body {
 
 .result__text {
 padding: 0;
+}
+
+/* SECTION FOR RESULTS */
+
+.section__result {
+  padding: 2rem;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.scnresult__title {
+
+}
+
+.scnresult__list {
+
+}
+
+.scnresult__item {
+  
 }
