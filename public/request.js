@@ -7,20 +7,20 @@ var request = {
   },
 
   //   Fetch requests
-  fetch: function(url, callbackSelect, callbackRender) {
+  fetch: function(url, callback) {
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener("load", function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText);
-        var result = callbackSelect(response);
-        callbackRender(result);
+        console.log("fetch is working", url)
+       // var response = JSON.parse(xhr.responseText);
+       // callback(response);
       } else {
         console.log("XHR error", xhr.readyState);
       }
     });
-
-    xhr.open("GET", url);
+    console.log(url);
+    xhr.open("GET", url, true);
     xhr.send();
   },
 };
