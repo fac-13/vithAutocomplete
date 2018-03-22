@@ -19,8 +19,20 @@ const logic = {
 	},
 
 	search: query => {
-		return {};
-		// take in a query (string) and return one matching result (object)
+		console.log(query);
+		let result = animals.filter(function(element) {
+			if (element['CommonName'] !== null) {
+				if (element['CommonName'].includes(query)) {
+					return element;
+				} else {
+					return false;
+				}
+			}
+			
+		}) 
+		console.log(result)
+		return result;
+		// take in a query (string) and return matching result (object)
 	}
 };
 
