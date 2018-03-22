@@ -69,8 +69,7 @@
 
 	// Function to display result query
 	function displayResults(response) {
-		domInput.value = event.target.firstChild.textContent;
-		removeChildren();
+		console.log(response);
 	};
 
 	// once click on the list, will update input
