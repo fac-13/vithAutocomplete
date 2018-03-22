@@ -13,7 +13,7 @@ const router = (request, response) => {
         handlers.suggestHandler(response, url);
 
     } else if (url.indexOf('search') !== -1) {
-        console.log("search router reached")
+        console.log("search router reached");
         handlers.searchHandler(response, url);
 
     } else if (url.indexOf('public') !== -1) {
