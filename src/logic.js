@@ -3,7 +3,7 @@ const dummy = require('./animalsDummy.json');
 // PURE LOGICS FOR PROCESSING
 
 const logic = {
-	searchSuggestions: input => {
+	suggestions: input => {
         let regex = new RegExp(`\\b${input}`, 'g');
         console.log(regex);
 		let result = dummy
@@ -17,7 +17,8 @@ const logic = {
 		// and return an array of 5 strings
 	},
 
-	searchResult: query => {
+	search: query => {
+		return {};
 		// take in a query (string) and return one matching result (object)
 	}
 };
