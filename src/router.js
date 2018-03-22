@@ -3,14 +3,17 @@ const logic = require('./logic');
 const handlers = require('./handlers');
 
 const router = (request, response) => {
-    console.log("router req:", request);
     const url = request.url;
 
     if (url === '/') {
         handlers.staticHandler(response, 'public/index.html');
 
+    } else if (url.indexOf('suggest') !== -1) {
+        console.log("suggest router reached")
+        handlers.suggestHandler(response, url);
+
     } else if (url.indexOf('search') !== -1) {
-        console.log("router reached")
+        console.log("search router reached")
         handlers.searchHandler(response, url);
 
     } else if (url.indexOf('public') !== -1) {

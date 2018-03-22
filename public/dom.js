@@ -2,7 +2,8 @@
 	document.querySelector('.form__input').focus(); // gives immediate focus to the form
 	var domList = document.querySelector('#js-result');
 	var domInput = document.querySelector('#js-input');
-	var startURL = '/search/?q='; // function scoped variable for the search string
+	var autocompleteURL = '/suggest/?q='; // function scoped variable for the search string
+	var searchQueryURL = '/search/?q='; // endpoint to request search results
 	var inputString = '';
 
 	// ADD LISTENER TO COMBINE IT ALL TOGETHER
@@ -17,17 +18,25 @@
 		if (event.keyCode >= 48 && event.keyCode <= 90) { 
 			// Do we care about punctuation and add more key codes ie space bar? (stretch!!!)
 			if (inputString !== '') {
-				request.fetch(startURL + inputString, displaySuggestions);
+				request.fetch(autocompleteURL + inputString, displaySuggestions);
 			}
 
 		} else if (event.keyCode === 8 && inputString !== '') {
+			console.log(event.keyCode)
 			// on backspace
-			request.fetch(startURL + inputString, displaySuggestions);
+			request.fetch(autocompleteURL + inputString, displaySuggestions);
+		} else if (event.keyCode === 13) { //"ENTER"
+			request.fetch(searchQueryURL + inputString, displayResults);	
 		}
 	});
 
-	// add listener to the form
-	domList.addEventListener('click', replaceInput);
+	// add listener to the form for dropdown content menu
+	domList.addEventListener('click', function(event) {
+		// second your URL
+		request.fetch(searchQueryURL + inputString, displayResults);
+		replaceInput(event);
+	}) 
+
 
 	// DOM MANIPULATION FUNCTIONS
 	// Remove list
@@ -36,7 +45,7 @@
 			domList.removeChild(domList.firstChild); // refreshes tracklist for repeadted searches
 		}
 	}
-	// Function once receiveed response
+	// Function to display autocomplete suggestions
 	function displaySuggestions(response) {
 		removeChildren();
 		response.forEach(function (item) {
@@ -50,6 +59,12 @@
 
 			domList.appendChild(domItem);
 		});
+	};
+
+	// Function to display result query
+	function displayResults(response) {
+		domInput.value = event.target.firstChild.textContent;
+		removeChildren();
 	};
 
 	// once click on the list, will update input
