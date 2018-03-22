@@ -3,9 +3,7 @@
 	var domList = document.querySelector('#js-result');
 	var domInput = document.querySelector('#js-input');
 	var startURL = '/search/?q='; // function scoped variable for the search string
-	var height = document.getElementById('js-submit').offsetHeight;
 	var inputString = '';
-	console.log(height);
 
 	// ADD LISTENER TO COMBINE IT ALL TOGETHER
 	request.addListener('#js-submit', 'keyup', function (event) {
@@ -50,6 +48,8 @@
 			domList.appendChild(domItem);
 		});
 	};
+
+
 
 	document.querySelector('.form').reset(); // resets search form input field
 })();
