@@ -26,6 +26,11 @@ body {
   display: none;
 }
 
+.is--smallSVG {
+  height: 5rem;
+  padding-top: .1rem;
+}
+
 /* HEADER */
 .header {
   display: flex;
@@ -42,6 +47,7 @@ body {
   text-align: center;
   margin: 4rem 3rem;
 }
+
 /* Form */
 .main__form {
   width: 100%;

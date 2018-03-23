@@ -10,6 +10,7 @@ const staticHandler = (response, filepath) => {
         css: 'text/css',
         js: 'application/javascript',
         ico: 'image/x-icon',
+        svg: 'image/svg+xml'
     };
 
     fs.readFile(path.join(__dirname, '..', filepath), 'utf8', (error, file) => {
