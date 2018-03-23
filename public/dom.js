@@ -13,7 +13,7 @@
 	request.addListener('#js-submit', 'keyup', function (event) {
 		event.preventDefault();
 		displayReset();
-		inputString = domInput.value;
+		inputString = domInput.value.trim();
 		//STETCH: if statement to handle highlight deletion
 		// Creates our Search String
 		if (inputString === '') {
