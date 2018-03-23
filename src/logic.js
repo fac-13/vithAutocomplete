@@ -10,7 +10,6 @@ const logic = {
 			.map(element => element['CommonName'])
             .filter(name => regex.test(name))
             .slice(0, 5)
-            console.log(result);
 		return result;
 		// should take a string of any length, and check the matching objects from animals.json
 		// and return an array of 5 strings
