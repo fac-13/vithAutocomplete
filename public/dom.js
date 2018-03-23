@@ -2,6 +2,8 @@
 	document.querySelector('.form__input').focus(); // gives immediate focus to the form
 	var domList = document.querySelector('#js-result');
 	var domInput = document.querySelector('#js-input');
+	var title = document.querySelector('.header__title');
+
 	var autocompleteURL = '/suggest/?q='; // function scoped variable for the search string
 	var searchQueryURL = '/search/?q='; // endpoint to request search results
 	var inputString = '';
@@ -19,7 +21,7 @@
 		if (inputString === '') {
 			removeChildren();
 		}
-		if (event.keyCode >= 48 && event.keyCode <= 90 || event.keyCode === 32) {
+		if ((event.keyCode >= 48 && event.keyCode <= 90) || event.keyCode === 32) {
 			// Do we care about punctuation and add more key codes ie space bar? (stretch!!!)
 			if (inputString !== '') {
 				request.fetch(autocompleteURL + inputString, displaySuggestions);
@@ -54,13 +56,12 @@
 
 	// Invalid input handle
 	function inputValidator() {
-		var figure = document.createElement("figure");
-		var unicorn =  document.createElement("img");
-		unicorn.classList.add("is--smallSVG")
-		unicorn.src = "public/emoji/unicorn.svg";
+		var figure = document.createElement('figure');
+		var unicorn = document.createElement('img');
+		unicorn.classList.add('is--smallSVG');
+		unicorn.src = 'public/emoji/unicorn.svg';
 		figure.appendChild(unicorn);
-		var title = document.querySelector('.header__title');
-		title.textContent = "What the FAC is this animal?"
+		title.textContent = 'What the FAC is this animal?';
 		title.appendChild(figure);
 	}
 
@@ -88,9 +89,10 @@
 	// Function to display result query
 	function displayResults(response) {
 		console.log(response);
-		if (response.length === 0) {// Search validation
+		if (response.length === 0) {
+			// Search validation
 			inputValidator();
-		} else { 
+		} else {
 			resultScnTitle.textContent = response[0].CommonName;
 			var keys = [
 				'Order',
@@ -123,6 +125,7 @@
 	function displayReset() {
 		removeChildren();
 		resultScnTitle.textContent = '';
+		title.textContent = 'Scientific Taxonomy for Mammals of World'; // why does this work?? why do we n ot need to remove child node to lose the unicorn?
 		while (resultScnList.firstChild) {
 			resultScnList.removeChild(resultScnList.firstChild); // refreshes tracklist for repeadted searches
 		}
