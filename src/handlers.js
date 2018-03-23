@@ -39,7 +39,7 @@ const searchHandler = (response, url) => {
 }
 
 module.exports = {
-    staticHandler,
-    suggestHandler,
-    searchHandler
+  staticHandler,
+  suggestHandler,
+  searchHandler
 };

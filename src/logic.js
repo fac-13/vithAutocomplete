@@ -1,5 +1,5 @@
-const animals = require('./animals.json');
-const querystring = require('querystring');
+const animals = require("./animals.json");
+const querystring = require("querystring");
 
 // PURE LOGICS FOR PROCESSING
 

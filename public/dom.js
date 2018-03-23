@@ -75,10 +75,10 @@
 	function displaySuggestions(response) {
 		response.forEach(function(item) {
 			var domItem = document.createElement('li');
-			domItem.classList.add('result__item');
+			domItem.classList.add('form__suggestions__item');
 
 			var title = document.createElement('span');
-			title.classList.add('result__text');
+			title.classList.add('form__suggestions__text');
 			title.textContent = item;
 			domItem.appendChild(title);
 
@@ -111,9 +111,9 @@
 				var text = response[0][key];
 				if (text) {
 					var domResItem = document.createElement('li');
-					domResItem.classList.add('scnresult__item');
+					domResItem.classList.add('result__item');
 					var resTitle = document.createElement('span');
-					resTitle.textContent = key + ' - ' + response[0][key];
+					resTitle.textContent = key + ': ' + response[0][key];
 					domResItem.appendChild(resTitle);
 					resultScnList.appendChild(domResItem);
 				}
