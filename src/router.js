@@ -1,6 +1,5 @@
-// THIS IS THE MAIL ROOM
-const logic = require("./logic");
-const handlers = require("./handlers");
+const logic = require('./logic');
+const handlers = require('./handlers');
 
 const router = (request, response) => {
   const url = request.url;

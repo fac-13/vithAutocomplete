@@ -21,6 +21,15 @@ body {
   margin: 0;
 }
 
+.is--hidden {
+  display: none;
+}
+
+.is--smallSVG {
+  height: 5rem;
+  padding-top: .1rem;
+}
+
 /* HEADER */
 .header {
   display: flex;
