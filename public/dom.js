@@ -13,13 +13,13 @@
 	request.addListener('#js-submit', 'keyup', function(event) {
 		event.preventDefault();
 		displayReset();
-		inputString = domInput.value;
+		inputString = domInput.value.trim();
 		//STETCH: if statement to handle highlight deletion
 		// Creates our Search String
 		if (inputString === '') {
 			removeChildren();
 		}
-		if (event.keyCode >= 48 && event.keyCode <= 90) {
+		if (event.keyCode >= 48 && event.keyCode <= 90 || event.keyCode === 32) {
 			// Do we care about punctuation and add more key codes ie space bar? (stretch!!!)
 			if (inputString !== '') {
 				request.fetch(autocompleteURL + inputString, displaySuggestions);

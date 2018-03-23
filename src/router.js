@@ -1,4 +1,3 @@
-// THIS IS THE MAIL ROOM
 const logic = require('./logic');
 const handlers = require('./handlers');
 
