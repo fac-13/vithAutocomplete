@@ -110,12 +110,20 @@
 			keys.forEach(function(key) {
 				var text = response[0][key];
 				if (text) {
-					var domResItem = document.createElement('li');
-					domResItem.classList.add('result__item');
-					var resTitle = document.createElement('span');
-					resTitle.textContent = key + ': ' + response[0][key];
-					domResItem.appendChild(resTitle);
-					resultScnList.appendChild(domResItem);
+					var resItem = document.createElement('li');
+					resItem.classList.add('result__item');
+					
+					var resKey = document.createElement('span');
+					resKey.classList.add('result__key')
+					resKey.textContent = key + ': ';
+					resItem.appendChild(resKey);
+
+					var resValue = document.createElement('span');
+					resValue.classList.add('result__value')
+					resValue.textContent = response[0][key];
+					resItem.appendChild(resValue);
+					
+					resultScnList.appendChild(resItem);
 				}
 			});
 		}
