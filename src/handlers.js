@@ -1,5 +1,3 @@
-// KITCHEN FOR ORDERS
-
 const fs = require('fs');
 const path = require('path');
 const data = require('./animals.json');
@@ -15,7 +13,6 @@ const staticHandler = (response, filepath) => {
     };
 
     fs.readFile(path.join(__dirname, '..', filepath), 'utf8', (error, file) => {
-        /* istanbul ignore if */
         if (error) {
             response.writeHead(500, {'content-type': 'text/plain'});
             response.end('server error');
@@ -36,8 +33,6 @@ const suggestHandler = (response, url) => {
 
 const searchHandler = (response, url) => {
     console.log("search handler reached");
-    // let inputText = url.replace('/search/?q=', '');
-    // let result = logic.searchQuery(inputText);
     let result = logic.searchQuery(url);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));

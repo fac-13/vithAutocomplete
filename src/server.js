@@ -1,4 +1,3 @@
-// IS THE HUB
 const http = require('http');
 const router = require('./router');
 
