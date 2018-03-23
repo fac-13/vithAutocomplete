@@ -28,16 +28,13 @@ const staticHandler = (response, filepath) => {
 
 const suggestHandler = (response, url) => {
     console.log("suggest handler reached");
-    let inputText = url.replace('/suggest/?q=', '');
-    let result = logic.suggestions(inputText);
+    let result = logic.suggestions(url);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));
 }
 
 const searchHandler = (response, url) => {
     console.log("search handler reached");
-    // let inputText = url.replace('/search/?q=', '');
-    // let result = logic.searchQuery(inputText);
     let result = logic.searchQuery(url);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));
