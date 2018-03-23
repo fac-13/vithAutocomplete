@@ -125,7 +125,7 @@
 	function displayReset() {
 		removeChildren();
 		resultScnTitle.textContent = '';
-		title.textContent = 'Scientific Taxonomy for Mammals of World'; // why does this work?? why do we n ot need to remove child node to lose the unicorn?
+		title.textContent = 'Scientific Taxonomy for Mammals of the World'; // why does this work?? why do we n ot need to remove child node to lose the unicorn?
 		while (resultScnList.firstChild) {
 			resultScnList.removeChild(resultScnList.firstChild); // refreshes tracklist for repeadted searches
 		}
