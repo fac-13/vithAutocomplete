@@ -34,12 +34,8 @@ Team VITH has built a site that allows you to search for the scientific name of 
 
 ### Resources
 
-- Mammal Dataset: https://www.departments.bucknell.edu/biology/resources/msw3/
+- Mammal Dataset source: https://www.departments.bucknell.edu/biology/resources/msw3/
 - Convert CSV data to JSON: http://www.convertcsv.com/csv-to-json.htm
-
-### Credits
-
-Our data set of non-extinct mammals of the world was sourced from ..... 
 
 ### Photo of our software architecture:
 
