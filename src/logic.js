@@ -1,4 +1,5 @@
 const animals = require('./animals.json');
+const querystring = require('querystring');
 
 // PURE LOGICS FOR PROCESSING
 
@@ -15,9 +16,10 @@ const logic = {
 		// and return an array of 5 strings
 	},
 
-	search: query => {
+	searchQuery: query => {
+		query = querystring.parse(query);
 		let result = animals
-			.filter(element => (element['CommonName'] && element['CommonName'].includes(query)) ? element : false)
+			.filter(element => (element['CommonName'] && element['CommonName'].includes(query['/search/?q'])) ? element : false)
 		return result;
 		// take in a query (string) and return matching result (object)
 	}

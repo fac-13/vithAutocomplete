@@ -5,37 +5,40 @@
 	var autocompleteURL = '/suggest/?q='; // function scoped variable for the search string
 	var searchQueryURL = '/search/?q='; // endpoint to request search results
 	var inputString = '';
+	var resultScnTitle = document.querySelector('#js-resTitle');
+	var resultScnList = document.querySelector('#js-resList');
 
+	displayReset();
 	// ADD LISTENER TO COMBINE IT ALL TOGETHER
 	request.addListener('#js-submit', 'keyup', function (event) {
 		event.preventDefault();
+		displayReset();
 		inputString = domInput.value;
 		//STETCH: if statement to handle highlight deletion
 		// Creates our Search String
 		if (inputString === '') {
 			removeChildren();
 		}
-		if (event.keyCode >= 48 && event.keyCode <= 90) { 
+		if (event.keyCode >= 48 && event.keyCode <= 90) {
 			// Do we care about punctuation and add more key codes ie space bar? (stretch!!!)
 			if (inputString !== '') {
 				request.fetch(autocompleteURL + inputString, displaySuggestions);
 			}
 
 		} else if (event.keyCode === 8 && inputString !== '') {
-			console.log(event.keyCode)
 			// on backspace
 			request.fetch(autocompleteURL + inputString, displaySuggestions);
 		} else if (event.keyCode === 13) { //"ENTER"
 			inputString = domInput.value;
-			request.fetch(searchQueryURL + inputString, displayResults);	
+			request.fetch(searchQueryURL + inputString, displayResults);
 		}
 	});
 
 	// add listener to the form for dropdown content menu
-	domList.addEventListener('click', function(event) {
+	domList.addEventListener('click', function (event) {
 		request.fetch(searchQueryURL + event.target.firstChild.textContent, displayResults);
 		replaceInput(event);
-	}) 
+	})
 
 	request.addListener('#js-submit', 'keydown', function (event) {
 		if (event.keyCode === 13) { //"ENTER"
@@ -53,7 +56,6 @@
 	}
 	// Function to display autocomplete suggestions
 	function displaySuggestions(response) {
-		removeChildren();
 		response.forEach(function (item) {
 			var domItem = document.createElement("li");
 			domItem.classList.add("result__item");
@@ -69,8 +71,32 @@
 
 	// Function to display result query
 	function displayResults(response) {
-		console.log(response);
+		resultScnTitle.textContent = response[0].CommonName;
+		// replace keys with resultKeys if want everything
+		// var resultKeys = Object.keys(response[0]);
+		var keys = ['Order', 'Suborder', 'Infraorder', 'Superfamily', 'Family', 'Subfamily', 'Tribe', 'Genus', 'Subgenus', 'Species', 'Subspecies'];
+		keys.forEach(function (key) {
+			var text = response[0][key];
+			if (text) {
+				var domResItem = document.createElement("li");
+				domResItem.classList.add("scnresult__item");
+				var resTitle = document.createElement("span");
+				resTitle.textContent = key + ' - ' + response[0][key];
+				domResItem.appendChild(resTitle);
+				resultScnList.appendChild(domResItem);
+			}
+
+		});
 	};
+
+	// after results have been displayed; reset stuff;
+	function displayReset() {
+		removeChildren();
+		resultScnTitle.textContent = '';
+		while (resultScnList.firstChild) {
+			resultScnList.removeChild(resultScnList.firstChild); // refreshes tracklist for repeadted searches
+		};
+	}
 
 	// once click on the list, will update input
 	function replaceInput(event) {

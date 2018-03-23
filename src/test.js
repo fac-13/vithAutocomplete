@@ -51,7 +51,7 @@ test('Testing results start with or contains word that starts with correct input
 
 // TESTS FOR SEARCH FUNCTION
 test('SEARCH: Testing logic.searchSuggestion returns an array', (t) => {
-    actual = logic.search('cat');
+    actual = logic.searchQuery('cat');
     if (Array.isArray(actual)) {
         t.pass();
     } else {
@@ -61,7 +61,7 @@ test('SEARCH: Testing logic.searchSuggestion returns an array', (t) => {
 });
 
 test('SEARCH: Testing first item in result is an object', (t) => {
-    actual = logic.search('anteater')[0];
+    actual = logic.searchQuery('anteater')[0];
     if (typeof actual === 'object') {
         t.pass();
     } else {
