@@ -10,7 +10,7 @@
 	var resultScnTitle = document.querySelector('#js-resTitle');
 	var resultScnList = document.querySelector('#js-resList');
 
-	//displayReset();
+	displayReset();
 	// ADD LISTENER TO COMBINE IT ALL TOGETHER
 	request.addListener('#js-submit', 'keyup', function(event) {
 		event.preventDefault();
