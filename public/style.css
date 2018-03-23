@@ -119,15 +119,27 @@ body {
 
 .result__list {
   list-style: none;
+  width: 50%;
 }
 
 .result__item {
   text-transform: capitalize;
   font-size: 1.2rem;
   padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .result__item:nth-last-child(2),
 .result__item:nth-last-child(1) {
   font-weight: bold;
+}
+
+.result__key {
+  width: 50%;
+}
+
+.result__value {
+  width: 50%;
 }
