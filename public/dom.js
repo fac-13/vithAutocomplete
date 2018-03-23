@@ -73,7 +73,6 @@
 	function displayResults(response) {
 		resultScnTitle.textContent = response[0].CommonName;
 		// replace keys with resultKeys if want everything
-		// var resultKeys = Object.keys(response[0]);
 		var keys = ['Order', 'Suborder', 'Infraorder', 'Superfamily', 'Family', 'Subfamily', 'Tribe', 'Genus', 'Subgenus', 'Species', 'Subspecies'];
 		keys.forEach(function (key) {
 			var text = response[0][key];

@@ -1,5 +1,3 @@
-// KITCHEN FOR ORDERS
-
 const fs = require('fs');
 const path = require('path');
 const data = require('./animals.json');
@@ -15,7 +13,6 @@ const staticHandler = (response, filepath) => {
     };
 
     fs.readFile(path.join(__dirname, '..', filepath), 'utf8', (error, file) => {
-        /* istanbul ignore if */
         if (error) {
             response.writeHead(500, {'content-type': 'text/plain'});
             response.end('server error');
