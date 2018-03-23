@@ -25,8 +25,7 @@ const staticHandler = (response, filepath) => {
 
 const suggestHandler = (response, url) => {
     console.log("suggest handler reached");
-    let inputText = url.replace('/suggest/?q=', '');
-    let result = logic.suggestions(inputText);
+    let result = logic.suggestions(url);
     response.writeHead(200, {'content-type': 'application/json'});
     response.end(JSON.stringify(result));
 }
